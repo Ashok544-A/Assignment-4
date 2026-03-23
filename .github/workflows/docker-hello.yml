@@ -28,7 +28,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: demo38.azurecr.io/hello-python:latest
+          tags: |
+            demo38.azurecr.io/hello-python:v${{ github.run_number }}
+            demo38.azurecr.io/hello-python:latest
       
      
     
