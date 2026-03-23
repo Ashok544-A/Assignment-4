@@ -20,8 +20,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: demo38.azurecr.io
-          username: ${{ secrets.AZURE_CLIENT_ID }}
-          password: ${{ secrets.AZURE_CLIENT_SECRET }}
+          username: ${{ secrets.ACR_USERNAME  }}
+          password: ${{ secrets.ACR_PASSWORD }}
   
       - name: build docker image
         uses: docker/build-push-action@v5
