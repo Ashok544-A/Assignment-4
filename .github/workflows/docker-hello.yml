@@ -22,7 +22,5 @@ jobs:
           push: true
           tags: demo38.azurecr.io/hello-python:latest
       
-      - name: push docker img to acr
-        run: |
-          docker push demo38.azurecr.io/hello-python:latest
+     
     
