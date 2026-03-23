@@ -1,0 +1,28 @@
+name: docker hello world!
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write
+      contents: read
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: login azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+      - name: build docker image
+        uses: docker/build-push-actions@v5
+        with:
+          context: .
+          push: true
+          tags: demo38.azurecr.io/hello-python:latest
+      
+      - name: push docker img to acr
+        run: |
+          docker push demo38.azurecr.io/hello-python:latest
+    
